@@ -18,22 +18,22 @@ Install dependencies and run default task
 
 ## gulp Commands
 
-* **Default** - Compile all files and watches for changes
+**Default** - Compile all files and watches for changes
 
         gulp
 
-* **Minify JS** - Run uglify on JavaScript
+**Minify JS** - Run uglify on JavaScript
 
 		gulp scripts
 		
-* **Concatenate Plugins** - Combine vendor plugins into a single file and uglify
+**Concatenate Plugins** - Combine vendor plugins into a single file and uglify
 
 		gulp plugins
 
-* **Images** - Run imagemin on images 
+**Images** - Run imagemin on images 
 
         grunt imagemin
 
-* **Twig** - Compile Twig templates
+**Twig** - Compile Twig templates
 
         grunt twig
