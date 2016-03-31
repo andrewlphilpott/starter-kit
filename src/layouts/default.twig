@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class=""> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<title>{{ title }}</title>
+
+		<link rel="stylesheet" type="text/css" href="{{ assets }}/css/screen.css" media="screen" />
+
+		<link href="{{ assets }}/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body id="{{ id }}" data-page="{{ data_page }}">
+
+		{% include '../partials/header.twig' %}
+
+		{% block body %}
+		{% endblock %}
+
+		{% include '../partials/scripts.twig' %}
+
+	</body>
+</html>

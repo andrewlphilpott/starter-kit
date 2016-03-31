@@ -1,0 +1,12 @@
+.DS_Store
+
+# Gulp
+node_modules/
+.sass-cache/
+
+# Compiled Files
+content/
+src/assets/css/*css*
+src/assets/js/lib/
+src/assets/js/*.min.js
+src/assets/js/plugins.js

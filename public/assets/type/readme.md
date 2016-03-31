@@ -1,0 +1,1 @@
+Drop your hosted fonts in this folder and reference them in the /assets/scss/_type.scss
