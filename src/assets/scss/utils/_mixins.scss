@@ -13,6 +13,19 @@
 		clear:both;
 	}
 }
+
+// Media queries
+@mixin max-down($max) {
+    @media only screen and (max-width: $max) { @content; }
+}
+ 
+@mixin min-up($min) {
+    @media only screen and (min-width: $min) { @content; }
+}
+ 
+@mixin min-max($min, $max) {
+    @media only screen and (min-width: $min) and (max-width: $max) { @content; }
+}
 /*-------------------------------------------
   Grid
 -------------------------------------------*/
