@@ -9,7 +9,7 @@ var paths = {
         imgDir: 'src/assets/img',
         imgAll: 'src/assets/img/**/*',
         twig: 'src/*.twig',
-        twigAll: 'src/**/[^_]*.twig',
+        twigAll: 'src/**/*.twig'
     },
     dest: {
         dir: 'public',
@@ -96,7 +96,7 @@ gulp.task('plugins', function() {
 
 // Compile Twig
 gulp.task('twig', function(){
-    return gulp.src(paths.src.twigAll)
+    return gulp.src(paths.src.twig)
         .pipe(twig({
             data: {
                 assets: '/assets'
