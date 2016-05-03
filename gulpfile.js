@@ -24,7 +24,7 @@ var paths = {
 var gulp = require('gulp');
 
 // Include Plugins
-var bourbon = require('node-bourbon').includePaths;
+var autoprefixer = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
 var copy = require('gulp-copy');
 var imagemin = require('gulp-imagemin');
@@ -52,10 +52,13 @@ gulp.task('sass', function(){
 	return gulp.src(paths.src.scssAll)
 		.pipe(sass({
             outputStyle: 'compressed',
-            includePaths: ['sass'].concat(bourbon),
         }).on('error', function(err){
             notify().write(err);
             this.emit('end');
+        }))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
         }))
 		.pipe(gulp.dest(paths.dest.css))
         .pipe(notify({message: 'SCSS compiled'}));

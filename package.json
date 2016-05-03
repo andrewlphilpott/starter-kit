@@ -5,6 +5,7 @@
   "author": "Elevator Up",
   "devDependencies": {
   	"gulp": "latest",
+    "gulp-autoprefixer": "latest",
   	"gulp-copy": "latest",
     "gulp-concat": "^2.6.0",
     "gulp-imagemin": "latest",
@@ -14,7 +15,6 @@
     "gulp-twig": "latest",
     "gulp-uglify": "^1.5.3",
     "gulp-watch": "latest",
-    "jshint": "^2.9.1",
-    "node-bourbon": "latest"
+    "jshint": "^2.9.1"
   }
 }
