@@ -26,6 +26,38 @@
 @mixin min-max($min, $max) {
     @media only screen and (min-width: $min) and (max-width: $max) { @content; }
 }
+
+/*-------------------------------------------
+  px to em
+-------------------------------------------*/
+$em-base: 16;
+
+@function em($pxval, $base: $em-base) {
+	@if not unitless($pxval) {
+		$pxval: strip-units($pxval);
+	}
+	@if not unitless($base) {
+		$base: strip-units($base);
+	}
+	@return ($pxval / $base) * 1em;
+}
+
+/*-------------------------------------------
+  px to rem
+-------------------------------------------*/
+
+@function rem($pxval) {
+	@if not unitless($pxval) {
+		$pxval: strip-units($pxval);
+	}
+
+	$base: $em-base;
+	@if not unitless($base) {
+		$base: strip-units($base);
+	}
+	@return ($pxval / $base) * 1rem;
+}
+
 /*-------------------------------------------
   Grid
 -------------------------------------------*/
