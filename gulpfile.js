@@ -16,7 +16,7 @@ var paths = {
         css: 'public/assets/css',
         js: 'public/assets/js',
         img: 'public/assets/img',
-        templates: 'public/build'
+        templates: 'public'
     }
 };
 
