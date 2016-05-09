@@ -25,6 +25,8 @@ var gulp = require('gulp');
 
 // Include Plugins
 var autoprefixer = require('gulp-autoprefixer');
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
 var concat = require('gulp-concat');
 var copy = require('gulp-copy');
 var imagemin = require('gulp-imagemin');
@@ -109,6 +111,17 @@ gulp.task('twig', function(){
         .pipe(notify({message: 'Twig compiled'}));
 });
 
+// BrowserSync
+gulp.task('serve', function(){
+    browserSync.init({
+      baseDir: paths.dest.dir,
+      proxy: 'starterkit.dev'
+    });
+
+    gulp.watch(paths.dest.templates + '/*.html').on('change', reload);
+    gulp.watch(paths.dest.js + '/*.js').on('change', reload);
+});
+
 // Watch Files For Changes
 gulp.task('watch', function() {
     gulp.watch(paths.src.imgAll, ['imagemin']);
@@ -119,4 +132,4 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['imagemin', 'plugins', 'sass', 'scripts', 'twig', 'watch']);
+gulp.task('default', ['serve', 'imagemin', 'plugins', 'sass', 'scripts', 'twig', 'watch']);

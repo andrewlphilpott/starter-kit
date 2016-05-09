@@ -6,6 +6,7 @@
   "devDependencies": {
   	"gulp": "latest",
     "gulp-autoprefixer": "latest",
+    "browser-sync": "^2.9.0",
   	"gulp-copy": "latest",
     "gulp-concat": "^2.6.0",
     "gulp-imagemin": "latest",
