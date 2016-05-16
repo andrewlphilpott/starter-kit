@@ -62,8 +62,9 @@ gulp.task('sass', function(){
             browsers: ['last 2 versions'],
             cascade: false
         }))
-		.pipe(gulp.dest(paths.dest.css))
-        .pipe(notify({message: 'SCSS compiled'}));
+	.pipe(gulp.dest(paths.dest.css))
+        .pipe(notify({message: 'SCSS compiled'}))
+        .pipe(browserSync.stream());
 });
 
 // Concatenate & Minify Main JS
@@ -82,7 +83,7 @@ gulp.task('scripts', function() {
             path.extname = '.js';
         }))
         .pipe(gulp.dest(paths.dest.js))
-        .pipe(notify({message: 'Scripts minified'}));;
+        .pipe(notify({message: 'Scripts minified'}));
 });
 
 // Concatenate & Minify JS Plugins
@@ -96,7 +97,7 @@ gulp.task('plugins', function() {
         })
         .pipe(rename('plugins.min.js'))
         .pipe(gulp.dest(paths.dest.js))
-        .pipe(notify({message: 'Plugins minified'}));;
+        .pipe(notify({message: 'Plugins minified'}));
 });
 
 // Compile Twig
@@ -118,7 +119,7 @@ gulp.task('serve', function(){
       proxy: 'starterkit.dev'
     });
 
-    gulp.watch(paths.dest.templates + '/*.html').on('change', reload);
+    gulp.watch(paths.dest.templates + '/**/*.html').on('change', reload);
     gulp.watch(paths.dest.js + '/*.js').on('change', reload);
 });
 
