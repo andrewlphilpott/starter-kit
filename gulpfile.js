@@ -33,6 +33,7 @@ var imagemin = require('gulp-imagemin');
 var notify = require('gulp-notify');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
 var twig = require('gulp-twig');
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
@@ -52,7 +53,8 @@ gulp.task('imagemin', function(){
 // Compile SASS
 gulp.task('sass', function(){
 	return gulp.src(paths.src.scssAll)
-		.pipe(sass({
+	    .pipe(sourcemaps.init())
+	    .pipe(sass({
             outputStyle: 'compressed',
         }).on('error', function(err){
             notify().write(err);
@@ -62,9 +64,10 @@ gulp.task('sass', function(){
             browsers: ['last 2 versions'],
             cascade: false
         }))
+        .pipe(sourcemaps.write('/'))
 	.pipe(gulp.dest(paths.dest.css))
         .pipe(notify({message: 'SCSS compiled'}))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream({match: '**/*.css'}));
 });
 
 // Concatenate & Minify Main JS
