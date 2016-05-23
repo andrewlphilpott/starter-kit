@@ -13,6 +13,7 @@
     "gulp-notify": "latest",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "latest",
     "gulp-twig": "latest",
     "gulp-uglify": "^1.5.3",
     "gulp-watch": "latest",
