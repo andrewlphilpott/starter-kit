@@ -6,8 +6,7 @@
 
 
 /* modules */
-@import 'modules/header';
-@import 'modules/footer';
+@import 'modules/**/*';
 
 /* pages */
-@import 'pages/homepage';
+@import 'pages/**/*';
