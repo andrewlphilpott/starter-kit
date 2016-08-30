@@ -32,8 +32,8 @@ Install dependencies and run default task
 
 **Images** - Run imagemin on images 
 
-        grunt imagemin
+        gulp imagemin
 
 **Twig** - Compile Twig templates
 
-        grunt twig
+        gulp twig
