@@ -33,6 +33,7 @@ var imagemin = require('gulp-imagemin');
 var notify = require('gulp-notify');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
+var sassGlob = require('gulp-sass-glob');
 var sourcemaps = require('gulp-sourcemaps');
 var twig = require('gulp-twig');
 var uglify = require('gulp-uglify');
@@ -54,20 +55,21 @@ gulp.task('imagemin', function(){
 gulp.task('sass', function(){
 	return gulp.src(paths.src.scssAll)
 	    .pipe(sourcemaps.init())
-	    .pipe(sass({
-            outputStyle: 'compressed',
-        }).on('error', function(err){
-            notify().write(err);
-            this.emit('end');
-        }))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
-        .pipe(sourcemaps.write('/'))
-	.pipe(gulp.dest(paths.dest.css))
-        .pipe(notify({message: 'SCSS compiled'}))
-        .pipe(browserSync.stream({match: '**/*.css'}));
+      .pipe(sassGlob())
+      .pipe(sass({
+          outputStyle: 'compressed',
+      }).on('error', function(err){
+          notify().write(err);
+          this.emit('end');
+      }))
+      .pipe(autoprefixer({
+          browsers: ['last 2 versions'],
+          cascade: false
+      }))
+      .pipe(sourcemaps.write('/'))
+      .pipe(gulp.dest(paths.dest.css))
+      .pipe(notify({message: 'SCSS compiled'}))
+      .pipe(browserSync.stream({match: '**/*.css'}));
 });
 
 // Concatenate & Minify Main JS
