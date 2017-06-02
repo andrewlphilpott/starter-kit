@@ -118,8 +118,9 @@ gulp.task('twig', function(){
 // BrowserSync
 gulp.task('serve', function(){
     browserSync.init({
+      server: './public',
       baseDir: paths.dest.dir,
-      proxy: 'starterkit.dev'
+      port: 3001
     });
 
     gulp.watch(paths.dest.templates + '/**/*.html').on('change', reload);
