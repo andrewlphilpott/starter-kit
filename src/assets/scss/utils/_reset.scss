@@ -78,8 +78,11 @@ input[type="checkbox"] {
   *vertical-align: baseline;
 }
 
-// button pointer
-button {cursor: pointer;}
+// button pointer and remove margin
+button {
+  cursor: pointer;
+  margin: 0;
+}
 
 // vertical alignment of radio buttons
 input[type="radio"] {vertical-align: text-bottom;}
